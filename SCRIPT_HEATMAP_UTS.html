@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HeatMap UTS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="">
+    <script src="https://cdn.jsdelivr.net/gh/auliiiiiiiiii/UTS-SIG-WEB@main/photoPoints2.js"></script>
+
+    <style>
+        #map {
+            margin: 0 auto;
+            display: block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+    <h1> Ujian Tengah Semester Semester Genap 2023/2024 </h1>
+    <h2> Praktikum Sistem Informasi Geospasial Berbasis WEB (SVSP212405) </h2>
+    <h3> Pesebaran Lokasi Pengambilan Gambar Sejak 26 April 2023 - 26 April 2024 </h3> 
+    </div>
+    <div id="map" style="max-width: 100%; height: 800px"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256- WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" 
+    crossorigin=""></script>
+
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+
+    <script>
+        var map = L.map('map').setView([-3.9017666034470952, 110.06476277493304], 6); 
+        mapLink =
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>'; 
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + 'Contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+        var heat = L.heatLayer(photoPoints2,{
+            radius: 20,
+            blur: 15,
+            maxZoom: 17,
+        }).addTo(map);
+    </script>
+    <p style="text-align: center; background-color: rgb(185, 181, 181);">Dibuat oleh: Nurytha Maulidya Amri (22/497569/SV/21141)</p>
+</body>
+</html>
